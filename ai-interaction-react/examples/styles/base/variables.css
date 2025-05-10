@@ -1,0 +1,46 @@
+:root {
+    --color-red: rgb(255, 0, 0);
+    --color-orange: rgb(255, 125, 0);
+    --color-yellow: rgb(255, 255, 0);
+    --color-spring-green: rgb(125, 255, 0);
+    --color-green: rgb(0, 255, 0);
+    --color-turquoise: rgb(0, 255, 125);
+    --color-cyan: rgb(0, 255, 255);
+    --color-ocean: rgb(0, 125, 255);
+    --color-blue: rgb(0, 0, 255);
+    --color-violet: rgb(125, 0, 255);
+    --color-magenta: rgb(255, 0, 255);
+    --color-raspberry: rgb(255, 0, 125);
+
+    --color-white: rgb(255, 255, 255);
+    --color-black: rgb(0, 0, 0);
+    --color-gray-light: rgb(240, 240, 240);
+    --color-gray-dark: rgb(51, 51, 51);
+
+    --font-family-base: 'Inter', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    --z-layer-base: 0;
+    --z-layer-tooltip: 100;
+    --z-layer-menu: 200;
+    --z-layer-dropdown: 300;
+    --z-layer-modal: 400;
+    --z-layer-sidebar: 500;
+    --z-layer-notification: 600;
+    --z-layer-popover: 700;
+    --z-layer-toast: 800;
+    --z-layer-overlay: 900;
+    --z-layer-admin-panel: 1000;
+    --z-layer-critical: 9999;
+}

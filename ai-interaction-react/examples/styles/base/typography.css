@@ -1,0 +1,62 @@
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-gray-dark);
+    background-color: var(--color-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-gray-dark);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 4rem);
+}
+h2 {
+    font-size: clamp(1.75rem, 4vw + 1rem, 3.5rem);
+}
+h3 {
+    font-size: clamp(1.5rem, 3vw + 1rem, 3rem);
+}
+h4 {
+    font-size: clamp(1.25rem, 2.5vw + 1rem, 2.5rem);
+}
+h5 {
+    font-size: clamp(1.1rem, 2vw + 0.5rem, 2rem);
+}
+h6 {
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.5rem);
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--color-blue);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+a:hover {
+    color: var(--color-magenta);
+    text-decoration: underline;
+}
+
+ul, ol {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+}
+
+li {
+    margin-bottom: var(--spacing-xs);
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+}

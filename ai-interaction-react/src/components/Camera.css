@@ -1,0 +1,39 @@
+.camera {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    width: fit-content;
+    background: #f9f9f9;
+}
+
+.camera__video {
+    width: 320px;
+    height: 240px;
+    border-radius: 4px;
+    display: block;
+}
+
+.camera__info {
+    margin-top: 10px;
+}
+
+.camera__status {
+    font-weight: bold;
+    color: green;
+}
+
+.camera__emotion {
+    font-style: italic;
+    color: #333;
+}
+
+.camera__alert {
+    color: red;
+    font-weight: bold;
+}
+
+.camera__warning {
+    color: orange;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
