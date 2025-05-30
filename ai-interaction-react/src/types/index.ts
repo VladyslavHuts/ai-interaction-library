@@ -2,7 +2,7 @@ export type EmotionType = 'happy' | 'sad' | 'angry' | 'neutral' | 'surprised' | 
 
 export interface CameraData {
     emotion: EmotionType
-    lightLevel: number // 0 - 100
+    lightLevel: number
     gesture: 'none' | 'wave' | 'thumbs_up' | 'scroll' | string
     isCameraActive: boolean
 }

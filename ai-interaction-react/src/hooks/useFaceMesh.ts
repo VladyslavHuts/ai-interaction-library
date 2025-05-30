@@ -6,7 +6,7 @@ export interface FaceMeshResult {
     faceCount: number;
     status: 'ok' | 'no_face' | 'multiple_faces';
     warning?: 'partial_landmarks';
-    landmarks: number[][]; // масив масивів [x,y,z]
+    landmarks: number[][];
 }
 
 export const useFaceMesh = (videoRef: React.RefObject<HTMLVideoElement>): FaceMeshResult => {
@@ -43,7 +43,6 @@ export const useFaceMesh = (videoRef: React.RefObject<HTMLVideoElement>): FaceMe
 
             if (detections.length >= 1) {
                 setLandmarks(detections[0].map(p => [p.x, p.y, p.z]));
-                // приклад — якщо частина landmarks відсутня
                 if (detections[0].length < 468) setWarning('partial_landmarks');
                 else setWarning(undefined);
             }
