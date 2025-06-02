@@ -1,0 +1,17 @@
+/* ───────────── THEME: LIGHT ───────────── */
+[data-theme="light"] {
+  --color-bg: var(--color-white);
+  --color-surface: var(--color-gray-50);
+  --color-text: var(--color-black);
+  --color-border: var(--color-gray-300);
+
+  --ui-btn-bg: var(--color-primary);
+  --ui-btn-text: var(--color-white);
+  --ui-btn-hover-bg: var(--color-primary-hover);
+
+  --ui-input-bg: var(--color-white);
+  --ui-input-border: var(--color-gray-300);
+
+  --ui-card-bg: var(--color-surface);
+  --ui-card-border: var(--color-border);
+}

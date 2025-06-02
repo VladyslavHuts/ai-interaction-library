@@ -1,0 +1,17 @@
+/* ───────────── THEME: DARK ───────────── */
+[data-theme="dark"] {
+  --color-bg: var(--color-gray-900);
+  --color-surface: var(--color-gray-700);
+  --color-text: var(--color-white);
+  --color-border: var(--color-gray-500);
+
+  --ui-btn-bg: var(--color-primary);
+  --ui-btn-text: var(--color-white);
+  --ui-btn-hover-bg: var(--color-primary-hover);
+
+  --ui-input-bg: var(--color-gray-800);
+  --ui-input-border: var(--color-gray-600);
+
+  --ui-card-bg: var(--color-gray-800);
+  --ui-card-border: var(--color-gray-600);
+}

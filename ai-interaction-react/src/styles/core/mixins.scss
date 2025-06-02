@@ -1,0 +1,31 @@
+// Mixin for classic media queries (viewport-based)
+// Use this for layout or global responsiveness based on screen size
+@mixin respond($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: 480px) { @content; }
+  } @else if $breakpoint == sm {
+    @media (max-width: 768px) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: 1024px) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: 1280px) { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: 1440px) { @content; }
+  }
+}
+
+// Mixin for container queries (component-level responsiveness)
+// Use this when a component should adapt to its container’s width instead of the viewport
+@mixin container-respond($breakpoint) {
+  @if $breakpoint == xs {
+    @container (max-width: 480px) { @content; }
+  } @else if $breakpoint == sm {
+    @container (max-width: 768px) { @content; }
+  } @else if $breakpoint == md {
+    @container (max-width: 1024px) { @content; }
+  } @else if $breakpoint == lg {
+    @container (max-width: 1280px) { @content; }
+  } @else if $breakpoint == xl {
+    @container (max-width: 1440px) { @content; }
+  }
+}

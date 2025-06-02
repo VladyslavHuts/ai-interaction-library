@@ -1,0 +1,121 @@
+// ===================================================
+// Global Utility Classes linked to CSS Variables
+// ===================================================
+
+/* ───────────── TEXT ───────────── */
+.truncate { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.nowrap { white-space: nowrap; }
+.break-word { word-break: break-word; }
+
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-muted { color: var(--color-muted); }
+
+/* ───────────── VISIBILITY ───────────── */
+.hidden { display: none !important; }
+.invisible { visibility: hidden !important; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ───────────── POSITIONING ───────────── */
+.absolute-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+
+/* ───────────── SIZING ───────────── */
+.full-width { width: 100%; }
+.full-height { height: 100%; }
+.full-size { width: 100%; height: 100%; }
+.w-auto { width: auto; }
+.h-auto { height: auto; }
+
+/* ───────────── BACKGROUNDS ───────────── */
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-muted { background-color: var(--color-muted); }
+.bg-surface { background-color: var(--color-surface); }
+
+/* ───────────── OVERFLOW ───────────── */
+.overflow-hidden { overflow: hidden !important; }
+.overflow-auto { overflow: auto !important; }
+
+/* ───────────── SCROLLBAR ───────────── */
+.hide-scrollbar {
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ───────────── CURSORS ───────────── */
+.cursor-pointer { cursor: pointer; }
+.cursor-default { cursor: default; }
+.cursor-not-allowed { cursor: not-allowed; }
+.cursor-move { cursor: move; }
+
+/* ───────────── TRANSITIONS ───────────── */
+.transition { transition: all var(--transition-duration) ease-in-out; }
+.transition-fast { transition: all 0.15s ease-in-out; }
+.transition-none { transition: none !important; }
+
+/* ───────────── GRID HELPERS ───────────── */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+/* ───────────── ASPECT RATIOS ───────────── */
+.aspect-16-9 { aspect-ratio: 16 / 9; }
+.aspect-1-1 { aspect-ratio: 1 / 1; }
+.aspect-4-3 { aspect-ratio: 4 / 3; }
+.aspect-auto { aspect-ratio: auto; }
+
+/* ───────────── BORDER RADIUS ───────────── */
+.rounded-none { border-radius: 0 !important; }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-full { border-radius: 9999px; }
+
+/* ───────────── SHADOWS ───────────── */
+.shadow-none { box-shadow: none !important; }
+.shadow-xs { box-shadow: var(--shadow-xs); }
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+/* ───────────── BORDERS ───────────── */
+.border-none { border: none !important; }
+.border { border: 1px solid var(--color-border); }
+.border-muted { border-color: var(--color-muted); }
+
+/* ───────────── Z-INDEX ───────────── */
+.z-0 { z-index: var(--z-layer-base); }
+.z-10 { z-index: 10; }
+.z-100 { z-index: 100; }
+.z-modal { z-index: var(--z-layer-modal); }
+.z-toast { z-index: var(--z-layer-toast); }
+.z-max { z-index: var(--z-layer-critical); }
