@@ -1,0 +1,51 @@
+// ===================================================
+//  CONFIGURATION
+// ===================================================
+
+$breakpoints: (
+        xs: 480px,     // mobile small
+        sm: 768px,     // tablet portrait
+        md: 1024px,    // tablet landscape / small desktop
+        lg: 1280px,    // desktop
+        xl: 1440px     // large desktop
+);
+
+
+// ===================================================
+//  MEDIA QUERY MIXINS (VIEWPORT)
+// ===================================================
+
+// Max-width media query — for responsive downscaling
+@mixin respond-max($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+  @if $size {
+    @media (max-width: $size) {
+      @content;
+    }
+  }
+}
+
+// Min-width media query — for responsive upscaling
+@mixin respond-min($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+  @if $size {
+    @media (min-width: $size) {
+      @content;
+    }
+  }
+}
+
+
+// ===================================================
+//  CONTAINER QUERY MIXINS (COMPONENT-SCOPE)
+// ===================================================
+
+// Use container queries to make components adapt to their parent width
+@mixin container-respond($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+  @if $size {
+    @container (max-width: $size) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+// ===================================================
+//  CSS Reset / Base styles for consistent rendering
+// ===================================================
+
+*, ::before, ::after { box-sizing: border-box; font-family: inherit; margin: 0; padding: 0; }
+ol, ul { list-style: none; padding: 0; }
+table, th, td { border: 0; }
+blockquote, figure { display: block; margin: 0; }
+input, textarea, select, button { font: inherit; margin: 0; padding: 0; background: none; border: none; outline: none; }
+html, body { height: 100%; margin: 0; padding: 0; }
+body { line-height: 1.5; min-height: 100%; }
+img, video { display: block; max-width: 100%; height: auto; }
+a:where([class]) { display: inline-flex; }
+button, label { cursor: pointer; }
+:where([fill]:not([fill="none"], [fill^="url"])) { fill: currentColor; }
+:where([stroke]:not([stroke="none"], [stroke^="url"])) { stroke: currentColor; }
+svg * { transition-property: fill, stroke; }
+:where(table) { border-collapse: collapse; border-color: currentColor; }
+audio, video, iframe, embed, object, picture { display: block; max-width: 100%; height: auto; }
+input:focus, textarea:focus, select:focus, button:focus { outline: none; }
+@media (prefers-reduced-motion: reduce) { *, ::before, ::after { animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }

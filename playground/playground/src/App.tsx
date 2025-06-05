@@ -1,29 +1,9 @@
-import './App.css'
-import { Voice } from 'ai-interaction-react';
+import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
-function App() {
+const App: React.FC = () => {
+        return <RouterProvider router={router} />;
+};
 
-  return (
-      <div>
-          <h1>🎤 Voice Control Playground</h1>
-          <Voice/>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-          <p>fdsfsdfds</p>
-      </div>
-  )
-}
-
-export default App
+export default App;

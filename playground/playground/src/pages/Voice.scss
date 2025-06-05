@@ -1,0 +1,13 @@
+.voice {
+  padding: 2rem;
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 1.125rem;
+    color: #666;
+  }
+}

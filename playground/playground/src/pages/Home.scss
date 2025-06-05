@@ -1,0 +1,362 @@
+@import '../styles/utils/mixins';
+.home {
+  position: relative;
+  z-index: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: var(--spacing-md);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(-45deg,
+            var(--gradient-color-1),
+            var(--gradient-color-2),
+            var(--gradient-color-3),
+            var(--gradient-color-4),
+            var(--gradient-color-5),
+            var(--gradient-color-6),
+            var(--gradient-color-7),
+            var(--gradient-color-8),
+            var(--gradient-color-9),
+            var(--gradient-color-10)
+    );
+    background-size: var(--gradient-size);
+    animation: gradientShift var(--gradient-speed) ease infinite;
+    opacity: var(--gradient-opacity);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    background-color: var(--color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  &__title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-black);
+
+    &--typewriter {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid var(--color-black);
+      font-size: var(--font-size-xl);
+      width: 0;
+      animation:
+              typing 3s steps(24, end) 2s forwards,
+              blink 0.75s step-end 2s 4 forwards;
+    }
+  }
+
+  &__letter{
+    display: inline-block;
+    opacity: 0;
+    animation: fade-in 0.2s ease forwards;
+    animation-delay: calc(2.5s + 2s + (var(--i) * 50ms));
+
+    &.letter-1  { animation: fade-in 0.2s ease forwards, morph-1 4.0s ease-in-out infinite; }
+    &.letter-2  { animation: fade-in 0.2s ease forwards, morph-2 3.2s ease-in-out infinite; }
+    &.letter-3  { animation: fade-in 0.2s ease forwards, morph-3 3.8s ease-in-out infinite; }
+    &.letter-4  { animation: fade-in 0.2s ease forwards, morph-4 4.2s ease-in-out infinite; }
+    &.letter-5  { animation: fade-in 0.2s ease forwards, morph-5 3.6s ease-in-out infinite; }
+    &.letter-6  { animation: fade-in 0.2s ease forwards, morph-6 4.5s ease-in-out infinite; }
+    &.letter-7  { animation: fade-in 0.2s ease forwards, morph-7 4.1s ease-in-out infinite; }
+    &.letter-8  { animation: fade-in 0.2s ease forwards, morph-8 3.7s ease-in-out infinite; }
+    &.letter-9  { animation: fade-in 0.2s ease forwards, morph-9 4.3s ease-in-out infinite; }
+    &.letter-10 { animation: fade-in 0.2s ease forwards, morph-10 3.5s ease-in-out infinite; }
+    &.letter-11 { animation: fade-in 0.2s ease forwards, morph-11 4.4s ease-in-out infinite; }
+    &.letter-12 { animation: fade-in 0.2s ease forwards, morph-12 3.3s ease-in-out infinite; }
+    &.letter-13 { animation: fade-in 0.2s ease forwards, morph-13 3.9s ease-in-out infinite; }
+    &.letter-14 { animation: fade-in 0.2s ease forwards, morph-14 4.6s ease-in-out infinite; }
+    &.letter-15 { animation: fade-in 0.2s ease forwards, morph-15 3.4s ease-in-out infinite; }
+    &.letter-16 { animation: fade-in 0.2s ease forwards, morph-16 4.7s ease-in-out infinite; }
+    &.letter-17 { animation: fade-in 0.2s ease forwards, morph-17 3.1s ease-in-out infinite; }
+    &.letter-18 { animation: fade-in 0.2s ease forwards, morph-18 4.8s ease-in-out infinite; }
+    &.letter-19 { animation: fade-in 0.2s ease forwards, morph-19 3.0s ease-in-out infinite; }
+    &.letter-20 { animation: fade-in 0.2s ease forwards, morph-20 5.0s ease-in-out infinite; }
+    &.letter-21 { animation: fade-in 0.2s ease forwards, morph-21 3.6s ease-in-out infinite; }
+    &.letter-22 { animation: fade-in 0.2s ease forwards, morph-22 4.9s ease-in-out infinite; }
+    &.letter-23 { animation: fade-in 0.2s ease forwards, morph-23 3.8s ease-in-out infinite; }
+    &.letter-24 { animation: fade-in 0.2s ease forwards, morph-24 4.0s ease-in-out infinite; }
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 20ch;
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: transparent;
+    }
+  }
+
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes morph-1 {
+    0% {
+      transform: scale(1) rotate(0deg);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-regular);
+      color: var(--color-accent);
+    }
+    50% {
+      transform: scale(1.1) rotate(2deg);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-regular);
+      color: var(--color-purple);
+    }
+  }
+
+  @keyframes morph-1 {
+    0%   { transform: scale(1) rotate(0deg); color: var(--color-accent); }
+    50%  { transform: scale(1.05) rotate(2deg); color: var(--color-primary); }
+    100% { transform: scale(1) rotate(0deg); color: var(--color-purple); }
+
+  }
+
+  @keyframes morph-2 {
+    0%   { transform: scale(1) rotate(1deg); color: var(--color-magenta); }
+    50%  { transform: scale(0.95) rotate(-3deg); color: var(--color-blue); }
+    100% { transform: scale(1) rotate(1deg); color: var(--color-orange); }
+  }
+
+  @keyframes morph-3 {
+    0%   { transform: scale(1) skewX(2deg); color: var(--color-raspberry); }
+    50%  { transform: scale(1.08) skewY(-2deg); color: var(--color-cyan); }
+    100% { transform: scale(1) skewX(0deg); color: var(--color-lime); }
+  }
+
+  @keyframes morph-4 {
+    0%   { transform: scale(1) rotate(1deg); color: var(--color-orange); }
+    50%  { transform: scale(1.1) rotate(-1deg); color: var(--color-yellow); }
+    100% { transform: scale(1) rotate(1deg); color: var(--color-mint); }
+  }
+
+  @keyframes morph-5 {
+    0%   { transform: scale(1) skewY(1deg); color: var(--color-green); }
+    50%  { transform: scale(1.05) skewX(-2deg); color: var(--color-aqua); }
+    100% { transform: scale(1) skewY(0deg); color: var(--color-pink); }
+  }
+
+  @keyframes morph-6 {
+    0%   { transform: scale(1) translateY(0); color: var(--color-lime); }
+    50%  { transform: scale(1.06) translateY(-2px); color: var(--color-teal); }
+    100% { transform: scale(1) translateY(0); color: var(--color-magenta); }
+  }
+
+  @keyframes morph-7 {
+    0%   { transform: rotate(0deg); color: var(--color-violet); }
+    50%  { transform: rotate(2deg); color: var(--color-indigo); }
+    100% { transform: rotate(0deg); color: var(--color-red); }
+  }
+
+  @keyframes morph-8 {
+    0%   { transform: scale(1) skewX(-2deg); color: var(--color-peach); }
+    50%  { transform: scale(1.07) skewX(2deg); color: var(--color-rose); }
+    100% { transform: scale(1) skewX(0deg); color: var(--color-lavender); }
+  }
+
+  @keyframes morph-9 {
+    0%   { transform: scale(1); color: var(--color-amber); }
+    50%  { transform: scale(1.1); color: var(--color-warm-pink); }
+    100% { transform: scale(1); color: var(--color-sea); }
+  }
+
+  @keyframes morph-10 {
+    0%   { transform: scale(1) rotate(-1deg); color: var(--color-red); }
+    50%  { transform: scale(0.97) rotate(1deg); color: var(--color-light-orange); }
+    100% { transform: scale(1) rotate(0deg); color: var(--color-yellow); }
+  }
+
+  @keyframes morph-11 {
+    0%   { transform: scale(1); color: var(--color-sky); }
+    50%  { transform: scale(1.04) translateX(2px); color: var(--color-lavender); }
+    100% { transform: scale(1); color: var(--color-orange); }
+  }
+
+  @keyframes morph-12 {
+    0%   { transform: scale(1); color: var(--color-purple); }
+    50%  { transform: scale(1.03) rotate(3deg); color: var(--color-light-blue); }
+    100% { transform: scale(1); color: var(--color-cyan); }
+  }
+
+  @keyframes morph-13 {
+    0%   { transform: translateY(0); color: var(--color-light-pink); }
+    50%  { transform: translateY(-2px); color: var(--color-sand); }
+    100% { transform: translateY(0); color: var(--color-honey); }
+  }
+
+  @keyframes morph-14 {
+    0%   { transform: scale(1); color: var(--color-mint); }
+    50%  { transform: scale(1.06) rotate(1deg); color: var(--color-sea); }
+    100% { transform: scale(1); color: var(--color-lavender); }
+  }
+
+  @keyframes morph-15 {
+    0%   { transform: rotate(0deg); color: var(--color-light-coral); }
+    50%  { transform: rotate(-2deg); color: var(--color-pink); }
+    100% { transform: rotate(0deg); color: var(--color-rose); }
+  }
+
+  @keyframes morph-16 {
+    0%   { transform: rotate(0deg); color: var(--color-violet);}
+    50%  { transform: scale(1.09) skewY(3deg); color: var(--color-cream); }
+    100% { transform: scale(1); color: var(--color-blue); }
+  }
+
+  @keyframes morph-17 {
+    0%   { transform: rotate(0); color: var(--color-caramel); }
+    50%  { transform: rotate(2deg); color: var(--color-honey); }
+    100% { transform: rotate(0); color: var(--color-mango); }
+  }
+
+  @keyframes morph-18 {
+    0%   { transform: scale(1); color: var(--color-ash); }
+    50%  { transform: scale(1.02) translateX(-2px); color: var(--color-mocha); }
+    100% { transform: scale(1); color: var(--color-raspberry); }
+  }
+
+  @keyframes morph-19 {
+    0%   { transform: scale(1) skewX(0deg); color: var(--color-ivory); }
+    50%  { transform: scale(1.04) skewX(3deg); color: var(--color-beige); }
+    100% { transform: scale(1) skewX(0deg); color: var(--color-amber); }
+  }
+
+  @keyframes morph-20 {
+    0%   { transform: scale(1); color: var(--color-mango); }
+    50%  { transform: scale(1.03) rotate(-2deg); color: var(--color-papaya); }
+    100% { transform: scale(1); color: var(--color-wine); }
+  }
+
+  @keyframes morph-21 {
+    0%   { transform: scale(1); color: var(--color-sunset); }
+    50%  { transform: scale(1.1) rotate(2deg); color: var(--color-dawn); }
+    100% { transform: scale(1); color: var(--color-light-blue); }
+  }
+
+  @keyframes morph-22 {
+    0%   { transform: scale(1); color: var(--color-blush); }
+    50%  { transform: scale(1.07) rotate(1deg); color: var(--color-breeze); }
+    100% { transform: scale(1); color: var(--color-coral); }
+  }
+
+  @keyframes morph-23 {
+    0%   { transform: scale(1); color: var(--color-coral); }
+    50%  { transform: scale(0.98) skewY(2deg); color: var(--color-apricot); }
+    100% { transform: scale(1); color: var(--color-bronze); }
+  }
+
+  @keyframes morph-24 {
+    0%   { transform: scale(1); color: var(--color-wine); }
+    50%  { transform: scale(1.06) rotate(3deg); color: var(--color-bronze); }
+    100% { transform: scale(1); color: var(--color-dawn); }
+  }
+
+  &__description {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-700);
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+    width: 100%;
+    max-width: 1200px;
+
+    @include respond-max(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond-max(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-max(xs) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    background: var(--ui-card-bg);
+    border: 1px solid var(--ui-card-border);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--color-black);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--motion-fast) var(--motion-ease-out), box-shadow var(--motion-fast);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  &__card-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  &__card-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-bold);
+  }
+
+  &__card-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-700);
+  }
+}

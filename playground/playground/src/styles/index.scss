@@ -1,0 +1,22 @@
+// ===================================================
+// SCSS Import Structure
+// ===================================================
+
+/* ───────────── UTILITIES ───────────── */
+@import './utils/variables';
+@import './utils/mixins';
+
+/* ───────────── BASE ───────────── */
+@import './base/reset';
+@import './base/base';
+@import './base/typography';
+
+/* ───────────── LAYOUT ───────────── */
+@import './layout/layout';
+@import './layout/header';
+@import './layout/footer';
+
+/* ───────────── COMPONENTS ───────────── */
+@import './components/button';
+@import './components/card';
+@import './components/modal';
