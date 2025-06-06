@@ -1,7 +1,7 @@
 .header {
-  background-color: #f5f5f5;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: var(--color-surface);
+  padding: var(--spacing-md) var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
 
   &__container {
     display: flex;
@@ -10,25 +10,44 @@
   }
 
   &__logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #0070f3;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
     text-decoration: none;
   }
 
   &__nav {
     display: flex;
-    gap: 1rem;
+    gap: var(--spacing-md);
+
+    &-inner{
+      position: relative;
+      display: flex;
+      gap: var(--spacing-md);
+    }
   }
 
   &__link {
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.2s ease;
+    color: var(--color-gray-900);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    transition: color var(--motion-fast) var(--motion-ease-in-out);
+    position: relative;
+    padding-bottom: var(--spacing-xs);
 
     &:hover {
-      color: #0070f3;
+      color: var(--color-primary-hover);
     }
+  }
+
+  &__underline{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    border-radius: var(--radius-sm);
   }
 }
