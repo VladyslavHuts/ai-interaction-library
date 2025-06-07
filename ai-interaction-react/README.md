@@ -23,7 +23,7 @@ This library is ideal for:
 
 Key Principles
 * Privacy-first — all processing happens in the browser
-* Modular — use only what you need (Camera, Voice, UI, Assistant)
+* Modular — use only what you need (CameraComponent, Voice, UI, Assistant)
 * React-native — built 100% on React + TypeScript with modern tooling
 * Framework-ready — future-proofed for integration with Vue, Angular, etc.
 
@@ -55,7 +55,7 @@ Below is a minimal usage example of the *ai-interaction-react* library within a 
 ### Example
 ```tsx
 import React from 'react'
-import { Camera, useVoice } from 'ai-interaction-react'
+import { CameraComponent, useVoice } from 'ai-interaction-react'
 
 const App: React.FC = () => {
   const { command, isListening } = useVoice()
@@ -63,7 +63,7 @@ const App: React.FC = () => {
   return (
     <div>
       <h1>AI Interaction Demo</h1>
-      <Camera />
+      <CameraComponent />
       <p>
         {isListening
           ? `Listening... Command: ${command}`
@@ -75,7 +75,7 @@ const App: React.FC = () => {
 export default App
 ```
 Key concepts demonstrated:
-* Rendering the <Camera /> component, which handles camera input and visual processing
+* Rendering the <CameraComponent /> component, which handles camera input and visual processing
 * Using the useVoice() hook to access current voice commands and listening state
 
 For a complete working example, see the /examples directory included in this repository.
@@ -87,9 +87,9 @@ This section provides an overview of all exported components, hooks, and their r
 
 ### Components
 
-Camera
+CameraComponent
 ```tsx
-<Camera />
+<CameraComponent />
 ```
 * Initializes access to the user's webcam
 * Processes facial expressions, gestures, and ambient light level
@@ -178,7 +178,7 @@ ai-interaction-react/
 ├── src/                   # Source code of the library
 │   ├── components/        # Core UI components
 │   │   ├── Assistant.tsx
-│   │   ├── Camera.tsx
+│   │   ├── CameraComponent.tsx
 │   │   ├── DynamicUI.tsx
 │   │   └── Voice.tsx
 │   ├── hooks/             # Custom React hooks
@@ -196,7 +196,7 @@ ai-interaction-react/
 Below are planned features and improvements for future releases.
 
 Released
-* Core components: Camera, Voice, DynamicUI, Assistant
+* Core components: CameraComponent, Voice, DynamicUI, Assistant
 * Custom hooks: useCamera, useVoice, useDynamicUI
 * TypeScript support with generated declarations
 * Peer dependency integration (react, react-dom)

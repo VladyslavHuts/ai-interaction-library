@@ -1,18 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES6",
     "module": "ESNext",
     "lib": ["DOM", "ESNext"],
     "moduleResolution": "Node",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "./dist/types",
     "emitDeclarationOnly": false,
     "outDir": "./dist",
-    "strict": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
