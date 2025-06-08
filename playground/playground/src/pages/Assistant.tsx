@@ -1,13 +1,16 @@
 import React from 'react';
-import './Assistant.scss';
+import AssistantComponent from 'ai-interaction-react/components/AssistantComponent'
+
 
 const Assistant: React.FC = () => {
     return (
-        <div className="assistant">
-            <h1 className="assistant__title">🤖 Assistant Page</h1>
+        <div className="assistant-page">
+            <h1 className="assistant__title">Assistant Page</h1>
             <p className="assistant__description">
-                This page will showcase the interactive assistant component.
+                This page showcases the interactive assistant component.
             </p>
+
+            <AssistantComponent />
         </div>
     );
 };
