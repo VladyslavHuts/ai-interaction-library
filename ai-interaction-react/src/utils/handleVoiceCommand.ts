@@ -39,6 +39,6 @@ export function handleVoiceCommand(command: VoiceCommand) {
             break;
 
         default:
-            console.log('🚫 Unhandled command:', command);
+            console.log('Unhandled command:', command);
     }
 }

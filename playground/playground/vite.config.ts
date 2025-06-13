@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import * as path from 'path';
+import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -10,7 +10,11 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      'ai-interaction-react': path.resolve(__dirname, '../../ai-interaction-react/src'),
-    },
-  },
+      '@ai/components': path.resolve(__dirname, '../../ai-interaction-react/src/components'),
+      '@ai/hooks': path.resolve(__dirname, '../../ai-interaction-react/src/hooks'),
+      '@ai/styles': path.resolve(__dirname, '../../ai-interaction-react/src/styles'),
+      '@ai/utils': path.resolve(__dirname, '../../ai-interaction-react/src/utils'),
+      '@ai/types': path.resolve(__dirname, '../../ai-interaction-react/src/types'),
+    }
+  }
 });

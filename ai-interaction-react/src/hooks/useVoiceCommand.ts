@@ -8,6 +8,8 @@ interface UseVoiceCommandOptions {
     cooldownMs?: number;
 }
 
+type SpeechRecognitionConstructor = new () => SpeechRecognition;
+
 export function useVoiceCommand({
                                     onCommand,
                                     lang = 'uk-UA',
@@ -17,18 +19,34 @@ export function useVoiceCommand({
     const lastExecutionRef = useRef<number>(0);
 
     const initRecognition = (): SpeechRecognition | null => {
-        const SpeechRecognition =
-            (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+        const SpeechRecognitionClass =
+            window.SpeechRecognition ||
+            (window as typeof window & { webkitSpeechRecognition?: SpeechRecognitionConstructor })
+                .webkitSpeechRecognition;
 
-        if (!SpeechRecognition) {
-            console.warn('Web Speech API not supported');
+        if (!SpeechRecognitionClass) {
+            console.error('❌ Web Speech API not supported in this browser.');
             return null;
         }
 
-        const recognition = new SpeechRecognition();
+        const recognition = new SpeechRecognitionClass();
         recognition.lang = lang;
         recognition.continuous = true;
         recognition.interimResults = false;
+
+        console.log(`[SpeechRecognition] ✅ Ініціалізовано з мовою: ${lang}`);
+
+        recognition.onstart = () => {
+            console.log('[SpeechRecognition] 🔊 Розпізнавання запущено');
+        };
+
+        recognition.onend = () => {
+            console.log('[SpeechRecognition] ⏹️ Розпізнавання завершено');
+            if (recognitionRef.current) {
+                console.log('[SpeechRecognition] 🔁 Перезапуск розпізнавання');
+                recognitionRef.current.start();
+            }
+        };
 
         recognition.onresult = (event: SpeechRecognitionEvent) => {
             const transcript = Array.from(event.results)
@@ -37,20 +55,30 @@ export function useVoiceCommand({
                 .trim()
                 .toLowerCase();
 
+            console.log('🧠 Розпізнано:', transcript);
+
             const now = Date.now();
             const command = matchVoiceCommand(transcript, lang);
 
-            if (command && now - lastExecutionRef.current > cooldownMs) {
-                onCommand(command);
-                lastExecutionRef.current = now;
+            if (!command) {
+                console.warn(`[SpeechRecognition] 🟥 Команду не розпізнано для: "${transcript}"`);
+                return;
             }
 
-            recognition.stop();
-            setTimeout(() => recognition.start(), 300);
+            if (now - lastExecutionRef.current > cooldownMs) {
+                console.log('✅ Команда:', command);
+                onCommand(command);
+                lastExecutionRef.current = now;
+
+                recognition.stop();
+                setTimeout(() => recognition.start(), 300);
+            } else {
+                console.log('⏳ Ігноровано через cooldown');
+            }
         };
 
         recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
-            console.warn('🎤 Speech recognition error:', event.error);
+            console.error(`[SpeechRecognition] ❌ Помилка: ${event.error}`);
             if (['no-speech', 'network'].includes(event.error)) {
                 recognition.stop();
                 setTimeout(() => recognition.start(), 300);
@@ -61,7 +89,10 @@ export function useVoiceCommand({
     };
 
     const start = () => {
-        if (recognitionRef.current) return;
+        if (recognitionRef.current) {
+            console.warn('[SpeechRecognition] ⚠️ Вже запущено');
+            return;
+        }
         const rec = initRecognition();
         if (rec) {
             recognitionRef.current = rec;
@@ -70,6 +101,7 @@ export function useVoiceCommand({
     };
 
     const stop = () => {
+        console.log('[SpeechRecognition] 🛑 Зупинка');
         recognitionRef.current?.stop();
         recognitionRef.current = null;
         lastExecutionRef.current = 0;

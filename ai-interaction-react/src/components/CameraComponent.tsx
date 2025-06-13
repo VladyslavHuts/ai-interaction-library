@@ -4,15 +4,14 @@ import { FACEMESH_TESSELATION } from '@mediapipe/face_mesh';
 
 type Point3D = { x: number; y: number; z: number };
 
-// Стандартні звʼязки між точками кисті
 const HAND_CONNECTIONS: [number, number][] = [
-    [0, 1], [1, 2], [2, 3], [3, 4],       // Thumb
-    [5, 6], [6, 7], [7, 8],               // Index
-    [9, 10], [10, 11], [11, 12],          // Middle
-    [13, 14], [14, 15], [15, 16],         // Ring
-    [17, 18], [18, 19], [19, 20],         // Pinky
-    [0, 5], [5, 9], [9, 13], [13, 17], [17, 0], // Palm outline
-    [0, 9], [5, 17], [5, 13], [0, 13]     // Cross links
+    [0, 1], [1, 2], [2, 3], [3, 4],
+    [5, 6], [6, 7], [7, 8],
+    [9, 10], [10, 11], [11, 12],
+    [13, 14], [14, 15], [15, 16],
+    [17, 18], [18, 19], [19, 20],
+    [0, 5], [5, 9], [9, 13], [13, 17], [17, 0],
+    [0, 9], [5, 17], [5, 13], [0, 13]
 ];
 
 function isPoint3DArray(input: unknown): input is Point3D[] {
@@ -85,9 +84,7 @@ const CameraComponent: React.FC = () => {
                 }
             });
 
-            // HANDS
             unifiedHandLandmarks.forEach((hand) => {
-                // Draw points
                 ctx.fillStyle = 'red';
                 hand.forEach((p) => {
                     ctx.beginPath();
@@ -95,7 +92,6 @@ const CameraComponent: React.FC = () => {
                     ctx.fill();
                 });
 
-                // Draw connections
                 ctx.strokeStyle = 'red';
                 ctx.lineWidth = 1;
                 HAND_CONNECTIONS.forEach(([start, end]) => {

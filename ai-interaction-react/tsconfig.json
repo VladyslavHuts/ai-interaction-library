@@ -16,7 +16,14 @@
     "emitDeclarationOnly": false,
     "outDir": "./dist",
     "skipLibCheck": true,
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "baseUrl": "src",
+    "paths": {
+      "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"],
+      "@types/*": ["types/*"],
+      "@ai/components/*": ["../../../ai-interaction-react/src/components/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

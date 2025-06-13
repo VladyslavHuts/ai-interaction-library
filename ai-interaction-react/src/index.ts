@@ -6,6 +6,8 @@ export * from './components/CameraComponent';
 export { default as Camera } from './components/CameraComponent';
 // export { default as CameraComponent } from './components/CameraComponent';
 // export { useCamera } from './hooks/useCamera';
+export { default as AssistantComponent } from './components/AssistantComponent';
+
 
 // CAMERA
 export { default as CameraComponent } from './components/CameraComponent';

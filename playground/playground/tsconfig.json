@@ -10,9 +10,13 @@
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "ai-interaction-react/*": ["../../ai-interaction-react/src/*"]
+      "@ai/components/*": ["../../../ai-interaction-react/src/components/*"],
+      "@ai/hooks/*": ["../../../ai-interaction-react/src/hooks/*"],
+      "@ai/styles/*": ["../../../ai-interaction-react/src/styles/*"],
+      "@ai/utils/*": ["../../../ai-interaction-react/src/utils/*"],
+      "@ai/types/*": ["../../../ai-interaction-react/src/types/*"]
     },
     "types": ["node"]
   },

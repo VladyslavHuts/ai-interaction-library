@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLang } from '../hooks/useLang';
 import { useVoiceCommand } from '../hooks/useVoiceCommand';
 import { handleVoiceCommand } from '../utils/handleVoiceCommand';
@@ -15,6 +15,14 @@ const Voice = () => {
             setLastCommand(`${cmd.type} (${cmd.value ?? '—'})`);
         },
     });
+
+    // 🔧 Перезапуск слухання при зміні мови
+    useEffect(() => {
+        if (listening) {
+            stop();
+            start();
+        }
+    }, [lang]);
 
     const toggleListening = () => {
         if (listening) {
@@ -40,10 +48,12 @@ const Voice = () => {
                 fontSize: 14,
                 boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
                 zIndex: 1000,
-                width: 260
+                width: 260,
             }}
         >
-            <div style={{ fontWeight: 600 }}>🎤 {listening ? 'Слухаю...' : 'Неактивний'}</div>
+            <div style={{ fontWeight: 600 }}>
+                🎤 {listening ? 'Слухаю...' : 'Неактивний'}
+            </div>
 
             <button
                 onClick={toggleListening}

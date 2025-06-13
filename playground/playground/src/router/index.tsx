@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Layout from '../layout/Layout';
-import Home from '../pages/Home';
-import CameraPage from '../pages/CameraPage';
-import Voice from '../pages/Voice';
-import Assistant from '../pages/Assistant';
-import DynamicUI from '../pages/DynamicUI';
+import Layout from '../layout/Layout.tsx';
+import Home from '../pages/Home.tsx';
+import CameraPage from '../pages/CameraPage.tsx';
+import Voice from '../pages/Voice.tsx';
+import Assistant from '../pages/Assistant.tsx';
+import DynamicUI from '../pages/DynamicUI.tsx';
 
 export const router = createBrowserRouter([
     {

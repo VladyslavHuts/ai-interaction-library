@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import '../styles/components/assistant.scss';
+import '@ai/styles/components/assistant.scss';
 import { useAssistant } from '../hooks/useAssistant';
 
 const Assistant: React.FC = () => {

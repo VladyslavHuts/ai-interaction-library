@@ -1,8 +1,8 @@
 {
-  "name": "ai-interaction-react",
+  "name": "ai-interaction-library",
   "version": "1.0.0",
   "description": "A React library for adaptive user interaction via camera, voice, and dynamic UI.",
-  "author": "Vladysalv Huts",
+  "author": "Vladyslav Huts",
   "license": "MIT",
   "private": false,
   "type": "module",
@@ -36,12 +36,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/ai-interaction-react"
+    "url": "https://github.com/VladyslavHuts/ai-interaction-library.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/ai-interaction-react/issues"
+    "url": "https://github.com/VladyslavHuts/ai-interaction-library/issues"
   },
-  "homepage": "https://github.com/your-username/ai-interaction-react#readme",
+  "homepage": "https://github.com/VladyslavHuts/ai-interaction-library#readme",
   "dependencies": {
     "@mediapipe/camera_utils": "^0.3.1675466862",
     "@mediapipe/face_mesh": "^0.4.1633559619",

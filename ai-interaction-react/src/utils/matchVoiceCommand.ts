@@ -20,7 +20,7 @@ export function matchVoiceCommand(
             if (lower.includes(phrase)) {
                 return {
                     type: type as VoiceCommandType,
-                    value: extractValue(lower, phrase), // ✅ returns string | number | undefined
+                    value: extractValue(lower),
                     rawText: transcript
                 };
             }
@@ -30,8 +30,7 @@ export function matchVoiceCommand(
     return null;
 }
 
-// ✅ Виправлений тип — без null
-function extractValue(transcript: string, _phrase: string): string | number | undefined {
+function extractValue(transcript: string): string | number | undefined {
     const percent = transcript.match(/(\d+)\s?%/);
     if (percent) return Number(percent[1]);
 
@@ -49,5 +48,5 @@ function extractValue(transcript: string, _phrase: string): string | number | un
     );
     if (color) return color[1];
 
-    return undefined; // ✅ замість null
+    return undefined;
 }
